@@ -1,0 +1,18 @@
+# IDE and editor files
+*.iml
+.vscode/
+.DS_Store
+
+# Dependency lock files
+Cargo.lock
+*.lock
+
+# Build artifacts
+target/
+
+# Local environment files
+local/
+venv/
+
+# Logs
+*.log
