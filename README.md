@@ -2,9 +2,9 @@
 a High-Performance Approach to Convex Optimization for Thermodynamic Equilibrum Computations
 
 University of Texas at Austin Electrical & Computer Engineering
-Senior Design Group Faculty Honors (FH) 12 | Aug 2024 - May 2025
-
-Paul Bessler, Jeffrey Geng, Yash Mittal, Aamir Mohsin, Sahil Shah, Arnav Vats, Fu-Yao (Jefferson) Yu
+- Senior Design Group Faculty Honors (FH) 12 | Aug 2024 - May 2025
+- First-Place Winner, UT ECE Capstone Senior Design Showcase
+- Paul Bessler, Jeffrey Geng, Yash Mittal, Aamir Mohsin, Sahil Shah, Arnav Vats, Fu-Yao (Jefferson) Yu
 
 ## About 
 Given the input concentrations and free energies of molecules,
