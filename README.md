@@ -1,4 +1,4 @@
-# COFFEE: Convex Optimization for Free Energy Equilibra
+# COFFEE: Convex Optimization for Free Energy Equilibria
 a High-Performance Approach to Convex Optimization for Thermodynamic Equilibrum Computations
 
 University of Texas at Austin Electrical & Computer Engineering
