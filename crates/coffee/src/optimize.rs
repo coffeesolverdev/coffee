@@ -304,7 +304,13 @@ impl Optimizer {
                 self.time_us = (Utc::now() - start_time)
                     .num_microseconds()
                     .unwrap_or_default() as usize;
-                self.print(&conclude_message(it, success, self.time_us, self.verbose));
+                self.print(&conclude_message(
+                    it,
+                    success,
+                    self.time_us,
+                    self.verbose,
+                    None,
+                ));
 
                 return Err(Box::new(OptimizerError(
                     "The Steihaug optimization did not succeed".to_string(),
@@ -374,6 +380,14 @@ impl Optimizer {
             true,
             self.time_us,
             self.verbose,
+            Some(&OptimizerResults {
+                optimal_x: self.optimal_x.to_vec(),
+                optimal_lagrangian: self.optimal_lagrangian,
+                optimal_lambda: self.optimal_lambda.to_vec(),
+                concentration_error: self.error(),
+                log_messages: self.log_msgs.clone(),
+                elapsed_time: self.time_us,
+            }),
         ));
 
         Ok(true)
