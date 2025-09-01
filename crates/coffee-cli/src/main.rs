@@ -69,6 +69,17 @@ fn command() -> Command {
                 .action(clap::ArgAction::SetTrue)
                 .help("Enable verbose output"),
         )
+        .arg(
+            Arg::new("temp")
+                .short('t')
+                .long("temp")
+                .required(false)
+                .help("Temperature in Celsius (defaults to 37)")
+                .value_parser(|val: &str| match val.parse::<f64>() {
+                    Ok(v) => Ok(v.to_string()),
+                    Err(_) => Err("Temperature must be a valid number".to_string()),
+                }),
+        )
 }
 
 struct CoffeeArgs {
@@ -88,6 +99,12 @@ impl CoffeeArgs {
 
     pub fn verbose(&self) -> bool {
         self.desc.get_flag("verbose")
+    }
+
+    pub fn temp_celsius(&self) -> Option<f64> {
+        self.desc
+            .get_one::<String>("temp")
+            .and_then(|s| s.parse::<f64>().ok())
     }
 }
 
@@ -110,10 +127,12 @@ fn main() {
     let log_path = args.get_file("log");
     let out_path = args.get_file("output");
     let verbose = args.verbose();
+    let temp_celsius = args.temp_celsius().unwrap_or(37.0);
 
     let optimizer_args = OptimizerArgs {
         verbose,
         use_terminal: log_path.is_none(),
+        temp_celsius,
         ..OptimizerArgs::default()
     };
 

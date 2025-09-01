@@ -77,6 +77,20 @@ This flag adds additional information to the output, including an elapsed time f
 ./coffee-cli ../../testcases/0/input.ocx ../../testcases/0/input.con -v
 ```
 
+#### Temperature
+
+Sets the temperature in Celsius used for kT and density-based scaling. Defaults to 37 if not provided.
+
+- Short Form: `-t <celsius>`
+- Long Form: `--temp <celsius>`
+- Default: 37
+
+**Example:**
+
+```bash
+./coffee-cli ../../testcases/0/input.ocx ../../testcases/0/input.con --temp 25
+```
+
 ### Log Redirection
 
 This flag redirects the log and the results to a specified output file. If this flag is not provided, log will print to stdout by default.
@@ -327,4 +341,3 @@ To produce a human-readable summary of the results, import and use the `results_
   let message = results_message(&results);
   println!("{}", message);
   ```
-
