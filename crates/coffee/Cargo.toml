@@ -3,10 +3,14 @@ name = "coffee"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+default = ["file-input"]
+file-input = ["dep:polars"]
+
 [dependencies]
 ndarray = { version = "0.16.1", features = ["rayon"] }
 csv = "1.1.6"
-polars = { version = "0.23.2", features = ["csv-file"] }
+polars = { version = "0.23.2", features = ["csv-file"], optional = true }
 nalgebra = "0.33.2"
 chrono = "0.4"
 approx = "0.5.1"

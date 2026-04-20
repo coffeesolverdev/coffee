@@ -1,24 +1,37 @@
 pub mod extras;
+#[cfg(feature = "file-input")]
 pub mod fileparse;
 pub mod format;
 pub mod optimize;
 pub mod steihaug;
 
+#[cfg(feature = "file-input")]
 use std::fs::File;
+#[cfg(feature = "file-input")]
 use std::io::Read;
 
+#[cfg(feature = "file-input")]
 use extras::{OptimizerArgs, OptimizerResults};
+#[cfg(feature = "file-input")]
 use fileparse::{parse_float, read_inputs_to_dataframe};
+#[cfg(feature = "file-input")]
 use format::results_message;
+#[cfg(feature = "file-input")]
 use ndarray::{Array1, Array2};
+#[cfg(feature = "file-input")]
 use optimize::Optimizer;
 
+#[cfg(feature = "file-input")]
 use core::result::Result;
+#[cfg(feature = "file-input")]
 use std::error::Error;
+#[cfg(feature = "file-input")]
 use std::io::Write;
 
+#[cfg(feature = "file-input")]
 use polars::prelude::DataType;
 
+#[cfg(feature = "file-input")]
 fn run_coffee_computation(
     cfe_bytes: &[u8],
     con_bytes: &[u8],
@@ -78,6 +91,7 @@ fn run_coffee_computation(
     Ok(optimizer.get_results())
 }
 
+#[cfg(feature = "file-input")]
 pub fn run_coffee_server(cfe_bytes: &[u8], con_bytes: &[u8]) -> Result<String, Box<dyn Error>> {
     let args = OptimizerArgs {
         use_terminal: true, // print to logs for websocket version
@@ -95,6 +109,7 @@ pub fn run_coffee_server(cfe_bytes: &[u8], con_bytes: &[u8]) -> Result<String, B
     Ok(results_message(&optimizer_results))
 }
 
+#[cfg(feature = "file-input")]
 pub fn run_coffee(
     file_path_cfe: &str,
     file_path_con: &str,
